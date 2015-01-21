@@ -11,9 +11,11 @@ endef
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 
     qcom_flags := -DQCOM_HARDWARE
+    ifneq ($(BOARD_USES_LEGACY_QCOM_DISPLAY),true)
     qcom_flags += -DQCOM_BSP
 
     TARGET_USES_QCOM_BSP := true
+    endif
     TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
     # Enable DirectTrack for legacy targets
